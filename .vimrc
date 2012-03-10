@@ -47,6 +47,8 @@ nnoremap <silent> <F4> :NERDTreeToggle<CR>
 " Open the TagList Plugin <F3>
 nnoremap <silent> <F3> :Tlist<CR>
 
+"" CTRLP Settings
+set wildignore+=*/tmp*,*.so,*.swp.*.zip
 
 
 "" TABS -- make tabs work like tabs, not buffers (I know.. shame on me)
@@ -65,7 +67,7 @@ nnoremap <silent> <C-t> :tabnew<CR>
 
 "" COLORS
 "
-colorscheme wombat256
+colorscheme molokai "wombat256
 
 
 
