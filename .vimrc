@@ -1,5 +1,4 @@
 "" SETTINGS
-
 filetype on
 filetype plugin indent on
 syntax on
@@ -22,63 +21,38 @@ set spl=en spell
 set nospell
 
 
+"" COLORS
+set t_Co=256
+colorscheme wombat256
+
+
 
 "" KEY MAPPINGS
-"
 inoremap jj <ESC>
 nnoremap <silent> zk O<ESC>
 nnoremap <silent> zj o<ESC>
-"nnoremap <silent> k gk
-"nnoremap <silent> j gj
-"inoremap <silent> <Up> <Esc>gka
-"inoremap <silent> <Down> <Esc>gja
-
-"" break bad habits
-" map <up> <nop>
-" map <down> <nop>
-" map <left> <nop>
-" map <right> <nop>
-
+nnoremap <silent> Q <NOP>
 
 
 "" PLUGINS SHORTCUTS
-"
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
-" Open the TagList Plugin <F3>
 nnoremap <silent> <F3> :Tlist<CR>
-
-"" CTRLP Settings
-set wildignore+=*/tmp*,*.so,*.swp.*.zip
 
 
 "" TABS -- make tabs work like tabs, not buffers (I know.. shame on me)
-"
-" When I close a tab, remove the buffer
 set nohidden
-" Next Tab
 nnoremap <silent> <C-Right> :tabnext<CR>
 nnoremap <silent> <C-n> :tabnext<CR>
-" Previous Tab
 nnoremap <silent> <C-Left> :tabprevious<CR>
-" New Tab
 nnoremap <silent> <C-t> :tabnew<CR>
-
-
-
-"" COLORS
-"
-colorscheme molokai "wombat256
-
 
 
 "" AUTOCOMMANDS
 "
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-
 " Remove any trailing whitespace that is in the file
 autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
-
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
    au!
