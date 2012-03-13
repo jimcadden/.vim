@@ -29,6 +29,10 @@ set nohlsearch          " turn off highlight searches, but:
 set t_Co=256
 colorscheme wombat256
 
+"" SYNTAX
+au BufRead,BufNewFile *.dats set filetype=ats 
+au BufRead,BufNewFile *.sats set filetype=ats 
+au! Syntax ats source ats.vim 
 
 
 "" KEY MAPPINGS
