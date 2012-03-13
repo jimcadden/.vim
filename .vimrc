@@ -16,9 +16,13 @@ set expandtab
 set showcmd
 set showmatch
 set smartcase
-set hlsearch
 set spl=en spell
 set nospell
+
+"" SEARCH
+set nohlsearch          " turn off highlight searches, but:
+                        " Turn hlsearch off/on with CTRL-N
+:map <silent> <C-N> :se invhlsearch<CR>
 
 
 "" COLORS
@@ -36,7 +40,10 @@ nnoremap <silent> Q <NOP>
 
 "" PLUGINS SHORTCUTS
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
-nnoremap <silent> <F3> :Tlist<CR>
+nnoremap <silent> <F3> :TlistToggle<CR>
+let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
+let Tlist_Show_One_File = 1       " Only show tags for current buffer
+
 
 
 "" TABS -- make tabs work like tabs, not buffers (I know.. shame on me)
