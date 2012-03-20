@@ -18,6 +18,7 @@ set showmatch
 set smartcase
 set spl=en spell
 set nospell
+set tw=78
 
 "" SEARCH
 set nohlsearch          " turn off highlight searches, but:
