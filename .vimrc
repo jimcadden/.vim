@@ -23,7 +23,7 @@ set tw=78
 "" SEARCH
 set nohlsearch          " turn off highlight searches, but:
                         " Turn hlsearch off/on with CTRL-N
-:map <silent> <C-N> :se invhlsearch<CR>
+map <silent> <C-n> :set invhlsearch<CR>
 
 
 "" COLORS
@@ -54,7 +54,7 @@ let Tlist_Show_One_File = 1       " Only show tags for current buffer
 "" TABS -- make tabs work like tabs, not buffers (I know.. shame on me)
 set nohidden
 nnoremap <silent> <C-Right> :tabnext<CR>
-nnoremap <silent> <C-n> :tabnext<CR>
+"nnoremap <silent> <C-n> :tabnext<CR>
 nnoremap <silent> <C-Left> :tabprevious<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
 
