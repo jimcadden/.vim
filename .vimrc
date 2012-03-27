@@ -50,6 +50,7 @@ nnoremap <silent> zj o<ESC>
 nnoremap <silent> Q <NOP>
 map <F1> :set invhlsearch<CR> " Turn hlsearch off/on
 imap <F1> :set invhlsearch<CR>
+nnoremap <silent> <C-q> :q<CR>
 
 
 "" PLUG INS SHORTCUTS
