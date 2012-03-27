@@ -47,6 +47,7 @@ au BufRead,BufNewFile *.sats set filetype=ats
 inoremap jj <ESC>
 nnoremap <silent> zk O<ESC>
 nnoremap <silent> zj o<ESC>
+nnoremap <silent> <C-q> :q<CR>
 nnoremap <silent> Q <NOP>
 map <F1> :set invhlsearch<CR> " Turn hlsearch off/on
 imap <F1> :set invhlsearch<CR>
