@@ -2,7 +2,6 @@
 filetype on
 filetype plugin indent on
 syntax on
-
 set number
 set mouse=a
 set autochdir
@@ -19,20 +18,21 @@ set showmatch
 set smartcase
 set spl=en spell
 set nospell
-set hlsearch          " turn on highlight searches, but:
+set hlsearch
 
+"" FOLDS
+" Space will toggle folds!
+" nnoremap <space> za
 
 "" COLORS
 set t_Co=256
 colorscheme wombat256
-
 
 "" SYNTAX
 au BufRead,BufNewFile *.dats set filetype=ats
 au BufRead,BufNewFile *.cats set filetype=ats
 au BufRead,BufNewFile *.sats set filetype=ats
 ""au! Syntax ats source ats.vim
-
 
 "" KEY MAPPINGS
 " Vim provides several different types of map commands, including:
@@ -43,18 +43,17 @@ au BufRead,BufNewFile *.sats set filetype=ats
 " nmap maps keys in normal mode only.
 " omap maps keys in operator-pending mode only.
 " vmap maps keys in visual mode only.
-
+" Swap ; and :  Convenient.
+nnoremap ` ~
 inoremap jj <ESC>
 nnoremap <silent> zk O<ESC>
 nnoremap <silent> zj o<ESC>
-nnoremap <silent> <C-q> :q<CR>
 nnoremap <silent> Q <NOP>
-map <F1> :set invhlsearch<CR> " Turn hlsearch off/on
-imap <F1> :set invhlsearch<CR>
+map <F2> :set invhlsearch<CR> " Turn hlsearch off/on
+imap <F2> :set invhlsearch<CR>
 nnoremap <silent> <C-q> :q<CR>
 
-
-"" PLUG INS SHORTCUTS
+"" PLUGINS SHORTCUTS
 "NERDTree
 nnoremap <silent> <F4> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -62,7 +61,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 nnoremap <silent> <F3> :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
 let Tlist_Show_One_File = 1       " Only show tags for current buffer
-
 
 "" TABS -- make tabs work like tabs, not buffers (I know.. shame on me)
 set nohidden
