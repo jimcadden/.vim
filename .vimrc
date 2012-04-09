@@ -49,9 +49,14 @@ inoremap jj <ESC>
 nnoremap <silent> zk O<ESC>
 nnoremap <silent> zj o<ESC>
 nnoremap <silent> Q <NOP>
+nnoremap <silent> qq <NOP>
 map <F2> :set invhlsearch<CR> " Turn hlsearch off/on
 imap <F2> :set invhlsearch<CR>
 nnoremap <silent> <C-q> :q<CR>
+nnoremap <silent> <C-h> <C-w>h
+nnoremap <silent> <C-j> <C-w>j
+nnoremap <silent> <C-k> <C-w>k
+nnoremap <silent> <C-l> <C-w>l
 
 "" PLUGINS SHORTCUTS
 "NERDTree
