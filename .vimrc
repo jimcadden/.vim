@@ -44,26 +44,32 @@ au BufRead,BufNewFile *.sats set filetype=ats
 " omap maps keys in operator-pending mode only.
 " vmap maps keys in visual mode only.
 " Swap ; and :  Convenient.
-nnoremap ` ~
 inoremap jj <ESC>
 nnoremap <silent> zk O<ESC>
 nnoremap <silent> zj o<ESC>
 nnoremap <silent> Q <NOP>
 nnoremap <silent> qq <NOP>
-map <F2> :set invhlsearch<CR> " Turn hlsearch off/on
-imap <F2> :set invhlsearch<CR>
-nnoremap <silent> <C-q> :q<CR>
+map <F5> :set invhlsearch<CR>" Turn hlsearch off/on
+imap <F5> :set invhlsearch<CR>
+"
 nnoremap <silent> <C-h> <C-w>h
 nnoremap <silent> <C-j> <C-w>j
 nnoremap <silent> <C-k> <C-w>k
 nnoremap <silent> <C-l> <C-w>l
+command mmake make! | copen
+" vimgrep shortcut
+cabbrev vg
+      \ vimgrep /\<lt><C-R><C-W>\>/gj
+      \ *<C-R>=(expand("%:e")=="" ? "" : ".*")<CR>
+      \ <Bar> lw QFix
+      \ <C-Left><C-Left><C-Left>
 
 "" PLUGINS SHORTCUTS
 "NERDTree
-nnoremap <silent> <F4> :NERDTreeToggle<CR>
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 "Tlist
-nnoremap <silent> <F3> :TlistToggle<CR>
+nnoremap <silent> <F4> :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
 let Tlist_Show_One_File = 1       " Only show tags for current buffer
 
@@ -72,7 +78,6 @@ set nohidden
 nnoremap <silent> <C-Right> :tabnext<CR>
 nnoremap <silent> <C-Left> :tabprevious<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
-
 
 "" AUTOCOMMANDS
 "
@@ -105,3 +110,16 @@ augroup JumpCursorOnEdit
             \   unlet b:doopenfold |
             \ endif
 augroup END
+"quick fix toggle command
+command -bang -nargs=? QFix call QFixToggle(<bang>0)
+function! QFixToggle(forced)
+  if exists("g:qfix_win") && a:forced == 0
+    cclose
+    unlet g:qfix_win
+  else
+    copen 10
+    let g:qfix_win = bufnr("$")
+  endif
+endfunction
+nmap <F2> :QFix<CR>
+
