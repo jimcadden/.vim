@@ -56,12 +56,11 @@ nnoremap <silent> <C-h> <C-w>h
 nnoremap <silent> <C-j> <C-w>j
 nnoremap <silent> <C-k> <C-w>k
 nnoremap <silent> <C-l> <C-w>l
-command Make make! | copen
 " vimgrep shortcut
 cabbrev vg
       \ vimgrep /\<lt><C-R><C-W>\>/gj
       \ *<C-R>=(expand("%:e")=="" ? "" : ".*")<CR>
-      \ <Bar> lw QFix
+      \ <Bar> lw
       \ <C-Left><C-Left><C-Left>
 
 "" PLUGINS SHORTCUTS
@@ -79,12 +78,11 @@ nnoremap <silent> <C-Right> :tabnext<CR>
 nnoremap <silent> <C-Left> :tabprevious<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
 
-"" AUTOCOMMANDS
+"" COMMANDS
 "
+command Make make! | copen
 " Automatically cd into the directory that the file is in
 autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-" Remove any trailing whitespace that is in the file
-autocmd BufRead,BufWrite * if ! &bin | silent! %s/\s\+$//ge | endif
 " Restore cursor position to where it was before
 augroup JumpCursorOnEdit
    au!
