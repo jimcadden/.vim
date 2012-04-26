@@ -26,7 +26,7 @@ set hlsearch
 
 "" COLORS
 set t_Co=256
-colorscheme wombat256
+colorscheme molokai
 
 "" SYNTAX
 au BufRead,BufNewFile *.dats set filetype=ats
