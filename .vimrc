@@ -1,62 +1,65 @@
 "" SETTINGS
+" syntax
 filetype on
 filetype plugin indent on
 syntax on
-set number
-set mouse=a
-set autochdir
-set autoindent
-set smarttab
-set shiftwidth=2
-set softtabstop=2
-set backspace=2
+" basic format
 set tw=78
-set laststatus=2
-set expandtab
-set showcmd
-set showmatch
-set smartcase
-set spl=en spell
+let tab = 2
+execute "set ts=".tab
+execute "set shiftwidth=".tab
+execute "set backspace=".tab
+" display 
+set number              " line numbers
+set mouse=a             " mouse control
+set autochdir           " auto change path to current dir
+set laststatus=2        " always display status line
+set showcmd             " display command
+set showmatch            " show matching braces
+" auto format
+set autoindent
+set smarttab             " auto-tab 
+set expandtab            " insert spaces for tab
+execute "set softtabstop=".tab
+" spelling (disabled)
 set nospell
-set hlsearch
-
-"" FOLDS
-" Space will toggle folds!
-" nnoremap <space> za
+set spl=en spell
+" search
+set hlsearch              " highlight matches
+"set incsearch           " move curses to next string as you type
 
 "" COLORS
 set t_Co=256
 colorscheme molokai
 
-"" SYNTAX
+"" CUSTOM SYNTAX
 au BufRead,BufNewFile *.dats set filetype=ats
 au BufRead,BufNewFile *.cats set filetype=ats
 au BufRead,BufNewFile *.sats set filetype=ats
 ""au! Syntax ats source ats.vim
 
 "" KEY MAPPINGS
-" Vim provides several different types of map commands, including:
-" cmap handles command-line mappings.
-" imap handles insert-only mappings.
-" map maps keys in normal, visual, and operator-pending mode.
-" map! maps keys in Vim’s command and insert modes.
-" nmap maps keys in normal mode only.
-" omap maps keys in operator-pending mode only.
-" vmap maps keys in visual mode only.
-" Swap ; and :  Convenient.
+" cmap - command-line mappings.
+" imap - insert-only mappings.
+" map - keys in normal, visual, and operator-pending mode.
+" map! - keys in command and insert modes.
+" nmap - keys in normal mode only.
+" omap - keys in operator-pending mode only.
+" vmap - keys in visual mode only.
+"
+" training wheels
 inoremap jj <ESC>
+inoremap kk <ESC>
+" easy newlines
 nnoremap <silent> zk O<ESC>
 nnoremap <silent> zj o<ESC>
+" disable recording (I never use it.. I should)
 nnoremap <silent> Q <NOP>
 nnoremap <silent> qq <NOP>
+" turn off highlight search
 map <F5> :set invhlsearch<CR>" Turn hlsearch off/on
 imap <F5> :set invhlsearch<CR>
-"
-nnoremap <silent> <C-h> <C-w>h
-nnoremap <silent> <C-j> <C-w>j
-nnoremap <silent> <C-k> <C-w>k
-nnoremap <silent> <C-l> <C-w>l
-" vimgrep shortcut
+" vimgrep shortcut - I want this to act like *
 cabbrev vg
       \ vimgrep /\<lt><C-R><C-W>\>/gj
       \ *<C-R>=(expand("%:e")=="" ? "" : ".*")<CR>
@@ -73,42 +76,15 @@ let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
 let Tlist_Show_One_File = 1       " Only show tags for current buffer
 
 "" TABS -- make tabs work like tabs, not buffers (I know.. shame on me)
-set nohidden
+set nohidden  " close buffer when all windows close
 nnoremap <silent> <C-Right> :tabnext<CR>
 nnoremap <silent> <C-Left> :tabprevious<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
 
 "" COMMANDS
-"
+" Make auto opens c-out 
 command Make make! | copen
-" Automatically cd into the directory that the file is in
-autocmd BufEnter * execute "chdir ".escape(expand("%:p:h"), ' ')
-" Restore cursor position to where it was before
-augroup JumpCursorOnEdit
-   au!
-   autocmd BufReadPost *
-            \ if expand("<afile>:p:h") !=? $TEMP |
-            \   if line("'\"") > 1 && line("'\"") <= line("$") |
-            \     let JumpCursorOnEdit_foo = line("'\"") |
-            \     let b:doopenfold = 1 |
-            \     if (foldlevel(JumpCursorOnEdit_foo) > foldlevel(JumpCursorOnEdit_foo - 1)) |
-            \        let JumpCursorOnEdit_foo = JumpCursorOnEdit_foo - 1 |
-            \        let b:doopenfold = 2 |
-            \     endif |
-            \     exe JumpCursorOnEdit_foo |
-            \   endif |
-            \ endif
-   " Need to postpone using "zv" until after reading the modelines.
-   autocmd BufWinEnter *
-            \ if exists("b:doopenfold") |
-            \   exe "normal zv" |
-            \   if(b:doopenfold > 1) |
-            \       exe  "+".1 |
-            \   endif |
-            \   unlet b:doopenfold |
-            \ endif
-augroup END
-"quick fix toggle command
+"quick fix panel toggle 
 command -bang -nargs=? QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
