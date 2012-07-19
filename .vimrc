@@ -3,7 +3,7 @@
 filetype on
 filetype plugin indent on
 syntax on
-" basic format
+" basic formating
 set tw=78
 let tab = 2
 execute "set ts=".tab
@@ -23,7 +23,6 @@ set expandtab            " insert spaces for tab
 execute "set softtabstop=".tab
 " spelling (disabled)
 set nospell
-set spl=en spell
 " search
 set hlsearch              " highlight matches
 "set incsearch           " move curses to next string as you type
@@ -67,6 +66,8 @@ cabbrev vg
       \ <C-Left><C-Left><C-Left>
 
 "" PLUGINS SHORTCUTS
+"pathogen plugin manager
+call pathogen#infect()
 "NERDTree
 nnoremap <silent> <F3> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
@@ -75,16 +76,18 @@ nnoremap <silent> <F4> :TlistToggle<CR>
 let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
 let Tlist_Show_One_File = 1       " Only show tags for current buffer
 
-"" TABS -- make tabs work like tabs, not buffers (I know.. shame on me)
+
+"" TABS 
 set nohidden  " close buffer when all windows close
 nnoremap <silent> <C-Right> :tabnext<CR>
 nnoremap <silent> <C-Left> :tabprevious<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
 
+
 "" COMMANDS
 " Make auto opens c-out 
 command Make make! | copen
-"quick fix panel toggle 
+"F2 quick fix panel toggle 
 command -bang -nargs=? QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
@@ -96,4 +99,3 @@ function! QFixToggle(forced)
   endif
 endfunction
 nmap <F2> :QFix<CR>
-
