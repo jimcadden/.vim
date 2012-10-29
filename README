@@ -10,3 +10,7 @@ t*        jump to *
 dt*       delete to *
 ct*       change to *
 H         curser to top of screen
+
+GIT - recursive pull of submodules  
+git submodule update --init
+
