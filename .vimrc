@@ -1,3 +1,4 @@
+
 "" SETTINGS
 " syntax
 filetype on
@@ -21,11 +22,10 @@ set autoindent
 set smarttab             " auto-tab 
 set expandtab            " insert spaces for tab
 execute "set softtabstop=".tab
-" spelling (disabled)
 set nospell
-" search
 set hlsearch              " highlight matches
-"set incsearch           " move curses to next string as you type
+set switchbuf+=useopen,split
+set cursorline
 
 "" COLORS
 set t_Co=256
@@ -55,16 +55,17 @@ nnoremap <silent> zj o<ESC>
 " disable recording (I never use it.. I should)
 nnoremap <silent> Q <NOP>
 nnoremap <silent> qq <NOP>
+
 " turn off highlight search
 map <F5> :set invhlsearch<CR>" Turn hlsearch off/on
 imap <F5> :set invhlsearch<CR>
-" vimgrep shortcut - I want this to act like *
-cabbrev vg
-      \ vimgrep /\<lt><C-R><C-W>\>/gj
-      \ *<C-R>=(expand("%:e")=="" ? "" : ".*")<CR>
-      \ <Bar> lw
-      \ <C-Left><C-Left><C-Left>
-
+" grep shortcut 
+nnoremap * *``
+cabbrev gg Ggrep <C-R><C-W><CR>:QFix
+"
+"
+" nmap <F6> :Ggrep <C-R><C-W><CR><*>
+"
 "" PLUGINS SHORTCUTS
 "pathogen plugin manager
 call pathogen#infect()
