@@ -31,7 +31,7 @@ set autoread
 set stl=%f\ %m\ %r\ L:%l/%L[%p%%]\ C:%v\ Buf:#%n
 
 "" COLORS
-"set t_Co=256
+set t_Co=256
 colorscheme zenburn
 
 
