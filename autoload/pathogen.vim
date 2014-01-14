@@ -21,7 +21,7 @@ let g:loaded_pathogen = 1
 " to invoke pathogen#runtime_prepend_subdirectories().  Afterwards,
 " pathogen#cycle_filetype() is invoked.
 function! pathogen#infect(...) abort " {{{1
-  let source_path = a:0 ? a:1 : 'vim-plugins'
+  let source_path = a:0 ? a:1 : 'plugins'
   if source_path =~# '[\\/]'
     call pathogen#runtime_prepend_subdirectories(source_path)
   else
