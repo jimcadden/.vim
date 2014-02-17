@@ -58,12 +58,19 @@ nnoremap <silent> qq <NOP>
 " turn off highlight search
 map <F5> :set invhlsearch<CR>" Turn hlsearch off/on
 imap <F5> :set invhlsearch<CR>
-" grep shortcut 
+
+" Ggrep shortcut 
 nnoremap * *``
 cabbrev gg Ggrep <C-R><C-W>
 " nmap <F6> :Ggrep <C-R><C-W><CR><*>
 
-"" PLUGINS SHORTCUTS
+" clang-format integration
+"map <C-I> :pyf /home/jmcadden/clang-format.py<CR>
+"imap <C-I> <ESC>:pyf /home/jmcadden/clang-format.py<CR>i
+
+
+
+""" PLUGINS SHORTCUTS
 
 "pathogen plugin manager
 call pathogen#infect()
