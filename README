@@ -4,7 +4,7 @@ My VIM config
 
 Grab the plugin submodules: cd ~/.vim && git submodule init && git submodule update
 
-Make sure vim finds the vimrc file by  symlinking it: ln -s ~/.vim/vimrc ~/.vimrc
+Make sure vim finds the vimrc file by  symlinking it: ln -s ~/.vim/.vimrc ~/.vimrc
 
 
 ##HELPFUL SHORTCUT
