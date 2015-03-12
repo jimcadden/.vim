@@ -54,6 +54,8 @@ nnoremap <silent> zj o<ESC>
 nnoremap <silent> Q <NOP>
 nnoremap <silent> q <NOP>
 nnoremap <silent> qq <NOP>
+" disable crashing shortcut
+nnoremap <silent> <C-s> <NOP>
 
 " turn off highlight search
 map <F5> :set invhlsearch<CR>" Turn hlsearch off/on
