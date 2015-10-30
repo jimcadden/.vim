@@ -54,8 +54,9 @@ nnoremap <silent> zj o<ESC>
 nnoremap <silent> Q <NOP>
 nnoremap <silent> q <NOP>
 nnoremap <silent> qq <NOP>
-" disable crashing shortcut
-nnoremap <silent> <C-s> <NOP>
+
+" formatting map
+nmap <F12> gg V G <Tab> ``
 
 " turn off highlight search
 map <F5> :set invhlsearch<CR>" Turn hlsearch off/on
@@ -67,9 +68,8 @@ cabbrev gg Ggrep <C-R><C-W>
 " nmap <F6> :Ggrep <C-R><C-W><CR><*>
 
 " clang-format integration
-"map <C-I> :pyf /home/jmcadden/clang-format.py<CR>
-"imap <C-I> <ESC>:pyf /home/jmcadden/clang-format.py<CR>i
-
+map <C-I> :pyf $HOME/.vim/clang-format.py<CR>
+imap <C-I> <ESC>:pyf $HOME/.vim/clang-format.py<CR>
 
 
 """ PLUGINS SHORTCUTS
@@ -88,8 +88,8 @@ let Tlist_Show_One_File = 1       " Only show tags for current buffer
 
 "" TABS 
 set nohidden  " close buffer when all windows close
-nnoremap <silent> <C-Right> :tabnext<CR>
-nnoremap <silent> <C-Left> :tabprevious<CR>
+nnoremap <silent> <C-l> :tabnext<CR>
+nnoremap <silent> <C-h> :tabprevious<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
 
 
