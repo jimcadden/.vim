@@ -1,23 +1,18 @@
-
-"" SETTINGS
-" syntax
+"" VIM SETTINGS
 filetype on
 filetype plugin indent on
 syntax on
-" basic formating
 set tw=78
 set ts=2
 set shiftwidth=2
 set backspace=2
 set softtabstop=2
-" display 
 set number              " line numbers
 set mouse=a             " mouse control
 set autochdir           " auto change path to current dir
 set laststatus=2        " always display status line
 set showcmd             " display command
 set showmatch           " show matching braces
-" auto format
 set autoindent
 set smarttab             " auto-tab 
 set expandtab            " insert spaces for tab
@@ -26,14 +21,10 @@ set hlsearch              " highlight matches
 set switchbuf+=useopen,split
 set cursorline
 set autoread
-
 " Configure status line.
 set stl=%f\ %m\ %r\ L:%l/%L[%p%%]\ C:%v\ Buf:#%n
-
-"" COLORS
 set t_Co=256
 colorscheme zenburn
-
 
 "" KEY MAPPINGS
 " cmap - command-line mappings.
@@ -43,25 +34,21 @@ colorscheme zenburn
 " nmap - keys in normal mode only.
 " omap - keys in operator-pending mode only.
 " vmap - keys in visual mode only.
-"
 " training wheels
 inoremap jj <ESC>
-inoremap kk <ESC>
+"inoremap kk <ESC>
 " easy newlines
 nnoremap <silent> zk O<ESC>
 nnoremap <silent> zj o<ESC>
-" disable recording (I never use it.. I should)
+" disable recording 
 nnoremap <silent> Q <NOP>
 nnoremap <silent> q <NOP>
 nnoremap <silent> qq <NOP>
-
 " formatting map
 nmap <F12> gg V G <Tab> ``
-
 " turn off highlight search
 map <F5> :set invhlsearch<CR>" Turn hlsearch off/on
 imap <F5> :set invhlsearch<CR>
-
 " Ggrep shortcut 
 nnoremap * *``
 cabbrev gg Ggrep <C-R><C-W>
@@ -71,26 +58,23 @@ cabbrev gg Ggrep <C-R><C-W>
 map <C-I> :pyf $HOME/.vim/clang-format.py<CR>
 imap <C-I> <ESC>:pyf $HOME/.vim/clang-format.py<CR>
 
-
-""" PLUGINS SHORTCUTS
-
-"pathogen plugin manager
-call pathogen#infect()
-
-"NERDTree
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
-"Tlist - ctags
-nnoremap <silent> <F4> :TlistToggle<CR>
-let Tlist_Exit_OnlyWindow = 1     " exit if taglist is last window open
-let Tlist_Show_One_File = 1       " Only show tags for current buffer
-
 "" TABS 
 set nohidden  " close buffer when all windows close
 nnoremap <silent> <C-l> :tabnext<CR>
 nnoremap <silent> <C-h> :tabprevious<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
+
+""" PLUGINS 
+"pathogen plugin manager
+call pathogen#infect()
+
+"NERDTree
+let NERDTreeShowBookmarks=1
+nnoremap <silent> <F3> :NERDTreeToggle<CR>
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+
+"Tagbar
+nnoremap <silent> <F4> :TagbarToggle<CR>
 
 
 "" COMMANDS
@@ -108,3 +92,13 @@ function! QFixToggle(forced)
   endif
 endfunction
 nmap <F2> :QFix<CR>
+
+
+
+"" GO-VIM SETTING
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_structs = 1
+let g:go_highlight_interfaces = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
