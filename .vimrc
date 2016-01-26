@@ -23,7 +23,7 @@ set cursorline
 set autoread
 " Configure status line.
 set stl=%f\ %m\ %r\ L:%l/%L[%p%%]\ C:%v\ Buf:#%n
-set t_Co=256
+"set t_Co=256
 colorscheme zenburn
 
 "" KEY MAPPINGS
@@ -55,13 +55,15 @@ cabbrev gg Ggrep <C-R><C-W>
 " nmap <F6> :Ggrep <C-R><C-W><CR><*>
 
 " clang-format integration
-map <C-I> :pyf $HOME/.vim/clang-format.py<CR>
-imap <C-I> <ESC>:pyf $HOME/.vim/clang-format.py<CR>
+map <leader><C-I> :pyf $HOME/.vim/clang-format.py<CR>
+imap <leader><C-I> <ESC>:pyf $HOME/.vim/clang-format.py<CR>
 
 "" TABS 
 set nohidden  " close buffer when all windows close
 nnoremap <silent> <C-l> :tabnext<CR>
 nnoremap <silent> <C-h> :tabprevious<CR>
+nnoremap <silent> <C-k> :tabnext<CR>
+nnoremap <silent> <C-j> :tabprevious<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
 
 """ PLUGINS 
@@ -75,7 +77,6 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTree
 
 "Tagbar
 nnoremap <silent> <F4> :TagbarToggle<CR>
-
 
 "" COMMANDS
 " Make auto opens c-out 
@@ -102,3 +103,8 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
+au FileType go nmap <Leader>gd <Plug>(go-doc)
+au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
+au FileType go nmap <Leader>s <Plug>(go-implements)
+au FileType go nmap <Leader>i <Plug>(go-info)
