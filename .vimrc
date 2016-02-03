@@ -45,6 +45,8 @@ set cursorline
 set autoread
 set nohidden  " close buffer when all windows close
 set stl=%f\ %m\ %r\ L:%l/%L[%p%%]\ C:%v\ Buf:#%n " Configure status line.
+set t_Co=256              " default to 256 colors
+" easy escape
 inoremap jj <ESC>
 " easy newlines
 nnoremap <silent> zk O<ESC>
@@ -53,18 +55,17 @@ nnoremap <silent> zj o<ESC>
 nnoremap <silent> Q <NOP>
 nnoremap <silent> q <NOP>
 nnoremap <silent> qq <NOP>
-" formatting map
-nmap <F12> gg V G <Tab> ``
 " turn off highlight search
 map <F8> :set invhlsearch<CR>" Turn hlsearch off/on
 imap <F8> :set invhlsearch<CR>
 " Ggrep shortcut 
 nnoremap * *``
 cabbrev gg Ggrep <C-R><C-W>
-" nmap <F6> :Ggrep <C-R><C-W><CR><*>
-" clang-format integration :FIXME
+" clang-format integration 
 map <leader><C-I> :pyf $HOME/.vim/clang-format.py<CR>
 imap <leader><C-I> <ESC>:pyf $HOME/.vim/clang-format.py<CR>
+" F12 clang formatting map
+nmap <F12> gg V G <leader><C-I>``
 
 "" TABS 
 nnoremap <silent> <C-l> :tabnext<CR>
@@ -99,20 +100,16 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 """
 """ COMMANDS
 """
-" Make auto opens c-out 
-command Make make! | copen
-"F2 quick fix panel toggle 
+
+"F2 quickfix panel toggle 
 command -bang -nargs=? QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
     cclose
     unlet g:qfix_win
   else
-    copen 10
+    bot copen 10
     let g:qfix_win = bufnr("$")
   endif
 endfunction
 nmap <F2> :QFix<CR>
-
-
-
