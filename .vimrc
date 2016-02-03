@@ -1,21 +1,31 @@
-"" VIM SETTINGS
-"" :so %  <- source current file
+"" VIM CONFIGUATION
+"" 
+"" SHORTCUTS
+"" F2 - quickfix window
+"" F3 - nerdtree window
+"" F4 - tagbar window
+"" F5 - freeze tagbar reference
+"" F8 - search highlights on/off
+"" F12 - clang format file
 ""
-"" KEY MAPPINGS
+"" REMINDERS
+"" :so %             source current file
+"" %                 goto corresponding bracket [,{,(
+"" ci{,ci",ci(       change within
+"" t*                jump to *
+"" H                 jump curser to top of window
+"" zz                current line center of window
+"" z+<enter>         current line to top of window
+""
+"" KEYMAP LEGEND
 " cmap - command-line mappings.
 " imap - insert-only mappings.
-" map - keys in normal, visual, and operator-pending mode.
+" map -  keys in normal, visual, and operator-pending mode.
 " map! - keys in command and insert modes.
 " nmap - keys in normal mode only.
 " omap - keys in operator-pending mode only.
 " vmap - keys in visual mode only.
 " 
-" MY SHORTCUTS
-" F3 - Nerdtree
-" F4 - Tagbar
-" F5 - Freeze Tagbar
-" F8 - Toggle search highlights
-""
 ""
 " pathogen plugin manager
 call pathogen#infect()
