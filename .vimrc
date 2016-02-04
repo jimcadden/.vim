@@ -1,12 +1,13 @@
 "" VIM CONFIGUATION
 "" 
 "" SHORTCUTS
-"" F2 - quickfix window
-"" F3 - nerdtree window
-"" F4 - tagbar window
-"" F5 - freeze tagbar reference
+"" F2 - quickfix bottom toggle 
+"" F3 - locations bottom toggle 
+"" F4 - clang format entire file
+"" F5 - nerdtree window
+"" F6 - tagbar window
+"" F7 - tagbar freeze/unfreeze file
 "" F8 - search highlights on/off
-"" F12 - clang format file
 ""
 "" REMINDERS
 "" :so %             source current file
@@ -25,11 +26,8 @@
 " nmap - keys in normal mode only.
 " omap - keys in operator-pending mode only.
 " vmap - keys in visual mode only.
-" 
 ""
-" pathogen plugin manager
-call pathogen#infect()
-""
+call pathogen#infect() " pathogen plugin manager
 colorscheme zenburn
 filetype on
 filetype plugin indent on
@@ -53,8 +51,9 @@ set hlsearch              " highlight matches
 set switchbuf+=useopen,split
 set cursorline
 set autoread
+set pastetoggle=<F2>      " toggle paste-intend on/off (must be in insert mode)
 set nohidden  " close buffer when all windows close
-set stl=%f\ %m\ %r\ L:%l/%L[%p%%]\ C:%v\ Buf:#%n " Configure status line.
+set stl=[%n]%{fugitive#statusline()}%h%w%m%r\ %<%.99f\ (%l,%c)\ %P\ " Configure status line.
 set t_Co=256              " default to 256 colors
 " easy escape
 inoremap jj <ESC>
@@ -65,35 +64,37 @@ nnoremap <silent> zj o<ESC>
 nnoremap <silent> Q <NOP>
 nnoremap <silent> q <NOP>
 nnoremap <silent> qq <NOP>
-" turn off highlight search
-map <F8> :set invhlsearch<CR>" Turn hlsearch off/on
-imap <F8> :set invhlsearch<CR>
-" Ggrep shortcut 
-nnoremap * *``
-cabbrev gg Ggrep <C-R><C-W>
-" clang-format integration 
-map <leader><C-I> :pyf $HOME/.vim/clang-format.py<CR>
-imap <leader><C-I> <ESC>:pyf $HOME/.vim/clang-format.py<CR>
-" F12 clang formatting map
-nmap <F12> gg V G <leader><C-I>``
-
-"" TABS 
+"" tab shortcuts 
 nnoremap <silent> <C-l> :tabnext<CR>
 nnoremap <silent> <C-h> :tabprevious<CR>
 nnoremap <silent> <C-k> :tabnext<CR>
 nnoremap <silent> <C-j> :tabprevious<CR>
 nnoremap <silent> <C-t> :tabnew<CR>
-
+" toggle highlight search
+map <F8> :set invhlsearch<CR>" Turn hlsearch off/on
+imap <F8> :set invhlsearch<CR>
+" Quick search local file
+nnoremap * *``
+" clang-format integration 
+map <leader><C-I> :pyf $HOME/.vim/clang-format.py
+imap <leader><C-I> <ESC>:pyf $HOME/.vim/clang-format.py
+" F2 quickfix toggle
+nmap <F2> :QFix<CR>
+  " F3 quickfix toggle
+nmap <F3> :Loc<CR>
+" F4 clang formatting map
+nmap <F4> gg V G <leader><C-I>``
+" FUGATIVE 
+cabbrev gg GgrepOpen <C-R><C-W>
+"cabbrev gh Ggrep <C-R><C-W>
 " NERDTree
 let NERDTreeShowBookmarks=1
-nnoremap <silent> <F3> :NERDTreeToggle<CR>
+nnoremap <silent> <F5> :NERDTreeToggle<CR>
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
-
 " TAGBAR
 let g:tagbar_autofocus = 1
-nnoremap <silent> <F4> :TagbarOpenAutoClose<CR>
-nnoremap <silent> <F5> :TagbarTogglePause<CR>
-
+nnoremap <silent> <F6> :TagbarOpenAutoClose<CR>
+nnoremap <silent> <F7> :TagbarTogglePause<CR>
 " GO-VIM 
 let g:go_highlight_functions = 1
 let g:go_highlight_methods = 1
@@ -106,12 +107,17 @@ au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
 au FileType go nmap <Leader>s <Plug>(go-implements)
 au FileType go nmap <Leader>i <Plug>(go-info)
-
-"""
-""" COMMANDS
-"""
-
-"F2 quickfix panel toggle 
+"
+"" COMMANDS
+"
+" vim-fugative lgrep and open locations window
+command -bang -nargs=? GgrepOpen call GgrepOpenLoc(<bang>0,<q-args>)
+function! GgrepOpenLoc(band,args) 
+  execute "Glgrep! ".a:args
+  call LocToggle(1) 
+endfunction
+"
+" quickfix panel toggle 
 command -bang -nargs=? QFix call QFixToggle(<bang>0)
 function! QFixToggle(forced)
   if exists("g:qfix_win") && a:forced == 0
@@ -122,4 +128,18 @@ function! QFixToggle(forced)
     let g:qfix_win = bufnr("$")
   endif
 endfunction
-nmap <F2> :QFix<CR>
+"
+" locations panel toggle 
+command -bang -nargs=? Loc call LocToggle(<bang>0)
+function! LocToggle(forced)
+  let buffer_count_before = s:BufferCount()
+  silent! lclose
+  if s:BufferCount() == buffer_count_before || a:forced == 1
+    execute "silent! lopen 10"
+  endif
+endfunction
+"
+" buffer count
+function! s:BufferCount()
+  return len(filter(range(1, bufnr('$')), 'buflisted(v:val)'))
+endfunction
