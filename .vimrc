@@ -113,8 +113,8 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 " vim-fugative lgrep and open locations window
 command -bang -nargs=? GgrepOpen call GgrepOpenLoc(<bang>0,<q-args>)
 function! GgrepOpenLoc(band,args) 
-  execute "Glgrep! ".a:args
-  call LocToggle(1) 
+  execute "Ggrep! ".a:args
+  call QFixToggle(1) 
 endfunction
 "
 " quickfix panel toggle 
