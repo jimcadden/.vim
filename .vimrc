@@ -37,6 +37,7 @@ filetype on
 filetype plugin indent on
 syntax on
 set tw=78
+au FileType gitcommit set tw=72
 set ts=2
 set shiftwidth=2
 set backspace=2
