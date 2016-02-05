@@ -92,6 +92,18 @@ nmap <F3> :Loc<CR>
 nmap <F4> gg V G <leader><C-I>``
 " FUGATIVE 
 cabbrev gg GgrepOpen <C-R><C-W>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gvdiff<CR>
+nnoremap <Leader>gc :Git diff --cached<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gl :exe ':!cd ' . expand('%:p:h') . '; git lg'<CR>
+nnoremap <Leader>gh :Silent Gllog<CR>
+nnoremap <Leader>gH :Silent Gllog<CR>:set nofoldenable<CR>
+nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <Leader>gp :Git push<CR>
+nnoremap <Leader>g- :Silent Git stash<CR>:e<CR>
+nnoremap <Leader>g+ :Silent Git stash pop<CR>:e<CR>
 "cabbrev gh Ggrep <C-R><C-W>
 " NERDTree
 let NERDTreeShowBookmarks=1
