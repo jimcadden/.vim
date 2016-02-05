@@ -8,3 +8,6 @@ Grab the plugin submodules:
 Symlink vimrc: 
 `` ln -s ~/.vim/.vimrc ~/.vimrc
 
+Global gitignore:
+`` ln -s ~/.vim/.gitignore_global ~/.gitignore
+`` git config --global core.excludesfile ~/.gitignore
