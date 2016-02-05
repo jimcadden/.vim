@@ -52,6 +52,7 @@ set autoindent
 set smarttab             " auto-tab 
 set expandtab            " insert spaces for tab
 set nospell
+au FileType gitcommit set spell 
 set hlsearch              " highlight matches
 set switchbuf+=useopen,split
 set cursorline
