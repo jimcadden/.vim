@@ -1,4 +1,8 @@
 "" VIM CONFIGUATION
+""
+"" TODO
+" -- new tab shortcuts (ctl+w o, crt+w p?)
+" -- Only auto-open quixf & locations window if they have content
 "" 
 "" SHORTCUTS
 "" F2 - quickfix bottom toggle 
