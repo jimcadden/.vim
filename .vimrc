@@ -32,10 +32,14 @@
 " vmap - keys in visual mode only.
 ""
 call pathogen#infect() " pathogen plugin manager
-colorscheme zenburn
+"colorscheme zenburn
 filetype on
 filetype plugin indent on
-syntax on
+syntax enable
+""
+set background=dark
+colorscheme solarized
+""
 set tw=78
 au FileType gitcommit set tw=72
 set ts=2
