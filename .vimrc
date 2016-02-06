@@ -32,14 +32,11 @@
 " vmap - keys in visual mode only.
 ""
 call pathogen#infect() " pathogen plugin manager
-"colorscheme zenburn
 filetype on
 filetype plugin indent on
 syntax enable
-""
-set background=dark
 colorscheme solarized
-""
+let mapleader=","
 set tw=78
 au FileType gitcommit set tw=72
 set ts=2
@@ -97,16 +94,16 @@ nmap <F4> gg V G <leader><C-I>``
 " buffers
 nnoremap <Leader>bd :bd<CR>
 " FUGATIVE 
-cabbrev gg GgrepOpen <C-R><C-W>
-nnoremap <Leader>gG :Ggrep <C-R><C-W><CR>
-nnoremap <Leader>gg :Ggrep! <C-R><C-W><CR>
+"cabbrev gg GgrepQF <C-R><C-W>
+nnoremap <Leader>gG :GgrepQF! <C-R><C-W>
+nnoremap <Leader>gg :GgrepQF! <C-R><C-W><CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gvdiff<CR>
 nnoremap <Leader>gc :Git diff --cached<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gl :exe ':!cd ' . expand('%:p:h') . '; git lg'<CR>
-nnoremap <Leader>gh :Gllog<CR>
-nnoremap <Leader>gH :Gllog<CR>:set nofoldenable<CR>
+nnoremap <Leader>gh :GllogLoc!<CR>
+nnoremap <Leader>gH :GllogLoc!<CR>:set nofoldenable<CR>
 nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>gp :Git push<CR>
@@ -136,11 +133,28 @@ au FileType go nmap <Leader>i <Plug>(go-info)
 "
 "" COMMANDS
 "
-" vim-fugative lgrep and open locations window
-command -bang -nargs=? GgrepOpen call GgrepOpenLoc(<bang>0,<q-args>)
-function! GgrepOpenLoc(band,args) 
-  execute "Ggrep! ".a:args
+" vim-fugative Ggrep and open quickfix window
+command -bang -nargs=? GgrepQF call GgrepOpenQFW(<bang>0,<q-args>)
+function! GgrepOpenQFW(bang,args) 
+  if a:bang == 0
+    execute "silent Ggrep ".a:args
+  else
+    execute "silent Ggrep! ".a:args
+  endif
+  execute ':redraw!'
   call QFixToggle(1) 
+endfunction
+
+" vim-fugative Gllog and open locations window
+command -bang -nargs=? GllogLoc call GllogOpenLoc(<bang>0,<q-args>)
+function! GllogOpenLoc(bang,args) 
+  if a:bang == 0
+    execute "silent Gllog ".a:args
+  else
+    execute "silent Gllog! ".a:args
+  endif
+  execute ':redraw!'
+  call LocToggle(1) 
 endfunction
 "
 " quickfix panel toggle 
