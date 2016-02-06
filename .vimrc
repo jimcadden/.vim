@@ -38,6 +38,7 @@ syntax enable
 colorscheme solarized
 set background=dark
 let mapleader=","
+set timeoutlen=1500
 set tw=78
 au FileType gitcommit set tw=72
 set ts=2
@@ -61,8 +62,8 @@ set cursorline
 set autoread
 set pastetoggle=<F2>      " toggle paste-intend on/off (must be in insert mode)
 set nohidden  " close buffer when all windows close
-set stl=[%n]%{fugitive#statusline()}%h%w%m%r\ %<%.99f\ (%l,%c)\ %P\ " Configure status line.
 set t_Co=256              " default to 256 colors
+set stl=%<%.99F\[%n]%{fugitive#statusline()}%y%w%m%r\ line:%l/%L\ col:%c\ 
 " easy escape
 inoremap jj <ESC>
 " easy newlines
