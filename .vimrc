@@ -36,6 +36,7 @@ filetype on
 filetype plugin indent on
 syntax enable
 colorscheme solarized
+set background=dark
 let mapleader=","
 set tw=78
 au FileType gitcommit set tw=72
