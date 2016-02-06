@@ -1,6 +1,11 @@
+*.*~
+*.capnp.*
 *.class
 *.com
+*.d
 *.dll
+*.elf
+*.elf32
 *.exe
 *.o
 *.so
