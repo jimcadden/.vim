@@ -1,6 +1,6 @@
 # General term settings
 export GIT_EDITOR=vim
-export PATH=$PATH:/usr/local/bin:$HOME/usr/local/bin
+export PATH=/usr/local/bin:$HOME/usr/local/bin:$PATH
 export PS1="\u@\h:\W \$ "
 export CLICOLOR=1
 alias ll="ls -lagh --color=auto"
