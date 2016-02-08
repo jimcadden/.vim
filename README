@@ -11,3 +11,5 @@ Symlink vimrc:
 Global gitignore:
 `` ln -s ~/.vim/.gitignore_global ~/.gitignore
 `` git config --global core.excludesfile ~/.gitignore
+
+`` echo "if [ -f ~/.vim/.bash_global ]; then; . ~/.vim/.bash_global; fi;" >> ~/.bashrc

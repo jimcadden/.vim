@@ -1,0 +1,25 @@
+# General term settings
+export GIT_EDITOR=vim
+export PATH=$PATH:/usr/local/bin:$HOME/usr/local/bin
+export PS1="\u@\h:\W \$ "
+export CLICOLOR=1
+alias ll="ls -lagh --color=auto"
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+HISTSIZE=
+HISTFILESIZE=
+HISTCONTROL=ignoreboth
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+if [ -x /usr/bin/dircolors ]; then
+  test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+  LS_COLORS=$LS_COLORS:'di=0;34:ln=35:ex=32:pi=36:so=36:or=41' ; export LS_COLORS
+fi
