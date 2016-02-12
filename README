@@ -5,8 +5,10 @@
 Grab the plugin submodules: 
 `` git submodule init && git submodule update
 
-Symlink vimrc: 
+Symlinks: 
 `` ln -s ~/.vim/.vimrc ~/.vimrc
+`` ln -s ~/.vim/.gitconfig ~/.gitconfig
+`` ln -s ~/.vim/.gitignore ~/.gitignore
 
 Global gitignore:
 `` ln -s ~/.vim/.gitignore_global ~/.gitignore

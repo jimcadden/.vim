@@ -1,0 +1,20 @@
+[user]
+  name= Jim Cadden
+  email= jmcadden@bu.edu
+[core]
+  editor=vim
+  excludesfile=~/.gitignore
+[github]
+  username=jmcadden
+[diff]
+  tool=vimdiff
+[push]
+	default = simple
+[alias]
+  l=log 
+	lg = log --all --graph --pretty=format:\"%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%ci) %C(bold blue)<%an>%Creset\" --abbrev-commit
+  s= status -s -b
+  gs= status
+  pull= pull --ff-only
+
+
