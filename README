@@ -8,10 +8,5 @@ Grab the plugin submodules:
 Symlinks: 
 `` ln -s ~/.vim/.vimrc ~/.vimrc
 `` ln -s ~/.vim/.gitconfig ~/.gitconfig
-`` ln -s ~/.vim/.gitignore ~/.gitignore
 
-Global gitignore:
-`` ln -s ~/.vim/.gitignore_global ~/.gitignore
-`` git config --global core.excludesfile ~/.gitignore
-
-`` echo "if [ -f ~/.vim/.bash_global ]; then; . ~/.vim/.bash_global; fi;" >> ~/.bashrc
+`` echo "if [ -f ~/.vim/.bash_global ]; then . ~/.vim/.bash_global; fi;" >> ~/.bashrc

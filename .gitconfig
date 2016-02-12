@@ -3,7 +3,7 @@
   email= jmcadden@bu.edu
 [core]
   editor=vim
-  excludesfile=~/.gitignore
+  excludesfile=~/.vim/.gitignore
 [github]
   username=jmcadden
 [diff]

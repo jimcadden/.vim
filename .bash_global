@@ -2,8 +2,7 @@
 export PATH=/usr/local/bin:$HOME/usr/local/bin:$PATH
 export PS1="\u@\h:\W \$ "
 export CLICOLOR=1
-alias lls="ls -lagh --color=auto"
-alias ls='ls --color=auto'
+alias lls="ls -lagh"
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
