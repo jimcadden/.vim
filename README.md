@@ -2,10 +2,7 @@
 
 ##Installation
 
-Grab the plugin submodules: 
-`` git submodule init && git submodule update
-
-Symlinks: 
+`git submodule init && git submodule update`
 
 `ln -s ~/.vim/.vimrc ~/.vimrc`
 
