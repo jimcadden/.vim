@@ -40,6 +40,8 @@ set background=dark
 let mapleader=","
 set timeoutlen=1500
 set tw=78
+au BufRead,BufNewFile *.sls setfiletype yaml
+autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 au FileType gitcommit set tw=72
 set ts=2
 set shiftwidth=2
