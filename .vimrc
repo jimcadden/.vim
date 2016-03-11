@@ -129,11 +129,10 @@ let g:go_highlight_structs = 1
 let g:go_highlight_interfaces = 1
 let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
-au FileType go nmap <Leader>gd <Plug>(go-doc)
-au FileType go nmap <Leader>gv <Plug>(go-doc-vertical)
-au FileType go nmap <Leader>gb <Plug>(go-doc-browser)
-au FileType go nmap <Leader>s <Plug>(go-implements)
-au FileType go nmap <Leader>i <Plug>(go-info)
+"au FileType go nmap <Leader>gD <Plug>(go-doc-vertical)
+"au FileType go nmap <Leader>gDB <Plug>(go-doc-browser)
+"au FileType go nmap <Leader>gR <Plug>(go-run)
+au FileType go nmap <Leader>gv <Plug>(go-build)
 "
 "" COMMANDS
 "
