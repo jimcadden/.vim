@@ -23,3 +23,9 @@ if [ -x /usr/bin/dircolors ]; then
   test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
   LS_COLORS=$LS_COLORS:'di=0;34:ln=35:ex=32:pi=36:so=36:or=41' ; export LS_COLORS
 fi
+
+function title ()
+{
+    TITLE=$*;
+    export PROMPT_COMMAND='echo -ne "\033]0;$TITLE\007"'
+}
