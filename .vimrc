@@ -63,7 +63,7 @@ set switchbuf+=useopen,split
 set cursorline
 set autoread
 set pastetoggle=<F2>      " toggle paste-intend on/off (must be in insert mode)
-set nohidden  " close buffer when all windows close
+set nohidden              " close buffer when all windows close
 set t_Co=256              " default to 256 colors
 set stl=%<%.99F\[%n]%{fugitive#statusline()}%y%w%m%r\ line:%l/%L\ col:%c\ 
 " easy escape
@@ -91,12 +91,14 @@ map <leader><C-I> :pyf $HOME/.vim/clang-format.py
 imap <leader><C-I> <ESC>:pyf $HOME/.vim/clang-format.py
 " F2 quickfix toggle
 nmap <F2> :QFix<CR>
-  " F3 quickfix toggle
+" F3 quickfix toggle
 nmap <F3> :Loc<CR>
 " F4 clang formatting map
 nmap <F4> gg V G <leader><C-I>``
 " buffers
 nnoremap <Leader>bd :bd<CR>
+" quick quit
+nnoremap <Leader>q :qa<CR>
 
 "" PLUGINS
 
@@ -106,7 +108,6 @@ nnoremap <Leader>gG :GgrepQF! <C-R><C-W>
 nnoremap <Leader>gg :GgrepQF! <C-R><C-W><CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gd :Gvdiff<CR>
-nnoremap <Leader>gc :Git diff --cached<CR>
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gl :exe ':!cd ' . expand('%:p:h') . '; git lg'<CR>
 nnoremap <Leader>gh :GllogLoc!<CR>
@@ -117,10 +118,14 @@ nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>g- :silent Git stash<CR>:e<CR>
 nnoremap <Leader>g+ :silent Git stash pop<CR>:e<CR>
 "cabbrev gh Ggrep <C-R><C-W>
+" airline
+let g:airline#extensions#whitespace#enabled = 0
 " Git-gutter
 set updatetime=250
 " CtrlP
 nnoremap <silent> <C-b> :CtrlPBuffer<CR>
+nnoremap <silent> <C-m> :CtrlPMRU<CR>
+nnoremap <silent> <C-P> :CtrlPMixed<CR>
 " NERDTree
 let NERDTreeShowBookmarks=1
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
