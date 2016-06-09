@@ -97,6 +97,9 @@ nmap <F3> :Loc<CR>
 nmap <F4> gg V G <leader><C-I>``
 " buffers
 nnoremap <Leader>bd :bd<CR>
+
+"" PLUGINS
+
 " FUGATIVE 
 "cabbrev gg GgrepQF <C-R><C-W>
 nnoremap <Leader>gG :GgrepQF! <C-R><C-W>
@@ -114,6 +117,10 @@ nnoremap <Leader>gp :Git push<CR>
 nnoremap <Leader>g- :silent Git stash<CR>:e<CR>
 nnoremap <Leader>g+ :silent Git stash pop<CR>:e<CR>
 "cabbrev gh Ggrep <C-R><C-W>
+" Git-gutter
+set updatetime=250
+" CtrlP
+nnoremap <silent> <C-b> :CtrlPBuffer<CR>
 " NERDTree
 let NERDTreeShowBookmarks=1
 nnoremap <silent> <F5> :NERDTreeToggle<CR>
