@@ -103,6 +103,7 @@ nnoremap <Leader>q :qa<CR>
 "" PLUGINS
 
 " FUGATIVE 
+autocmd BufReadPost fugitive://* set bufhidden=delete
 "cabbrev gg GgrepQF <C-R><C-W>
 nnoremap <Leader>gG :GgrepQF! <C-R><C-W>
 nnoremap <Leader>gg :GgrepQF! <C-R><C-W><CR>
