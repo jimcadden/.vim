@@ -35,6 +35,8 @@ call pathogen#infect() " pathogen plugin manager
 filetype on
 filetype plugin indent on
 syntax enable
+set t_Co=256
+let g:solorized_termcolors=256
 colorscheme solarized
 set background=dark
 let mapleader=","
