@@ -89,14 +89,13 @@ imap <F8> :set invhlsearch<CR>
 " Quick search local file
 nnoremap * *``
 " clang-format integration 
-map <leader><C-I> :pyf $HOME/.vim/clang-format.py
-imap <leader><C-I> <ESC>:pyf $HOME/.vim/clang-format.py
+map <C-I> :py3f $HOME/.vim/clang-format.py<cr>
+imap <C-I> <c-o>:py3f $HOME/.vim/clang-format.py<cr>
+nmap <F4> ggVG :py3f $HOME/.vim/clang-format.py<cr>
 " F2 quickfix toggle
 nmap <F2> :QFix<CR>
 " F3 quickfix toggle
 nmap <F3> :Loc<CR>
-" F4 clang formatting map
-nmap <F4> gg V G <leader><C-I>``
 " buffers
 nnoremap <Leader>bd :bd<CR>
 " quick quit
