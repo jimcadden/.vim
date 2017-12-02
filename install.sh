@@ -3,7 +3,9 @@
 # install links
 ln -s ~/.vim/vimrc ~/.vimrc
 ln -s ~/.vim/gitconfig ~/.gitconfig
-echo ". ~/.vim/bash_global" >> ~/.bashrc
+ln -s ~/.vim/inputrc ~/.inputrc
+echo "source ~/.vim/bash_global" >> ~/.bash_profile
+echo "source ~/.vim/bash_global" >> ~/.bashrc
 
-echo "Download all plugins:"
+echo "Did you remember to download the vim plugins?:"
 echo "git submodule init && git submodule update"
