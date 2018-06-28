@@ -31,6 +31,7 @@
 call pathogen#infect() " pathogen plugin manager
 syntax enable
 let mapleader="?"
+set gfn=Monaco:h13      " OSX 
 set background=dark
 set timeoutlen=1500
 set tw=78
@@ -67,6 +68,7 @@ au BufRead,BufNewFile *.sls setfiletype yaml
 autocmd BufNewFile,BufReadPost *.md set filetype=markdown
 au FileType gitcommit set tw=72
 au FileType gitcommit set spell 
+au FileType markdown set spell 
 " disable recording 
 nnoremap <silent> Q <NOP>
 nnoremap <silent> q <NOP>
