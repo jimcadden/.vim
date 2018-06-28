@@ -109,6 +109,9 @@ nnoremap <Leader>q :qa<CR>
 
 "" PLUGINS """"""""""""""""""""""""""""""""""""""""""
 
+
+" CTAGS
+let g:tagbar_ctags_bin = '$HOME/usr/local/bin/ctags'
 " FUGATIVE 
 autocmd BufReadPost fugitive://* set bufhidden=delete
 "cabbrev gg GgrepQF <C-R><C-W>
