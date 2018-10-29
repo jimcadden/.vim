@@ -95,7 +95,7 @@ nmap <F2> :QFix<CR>
 nmap <F3> :Loc<CR>
 " F4 clang-format integration 
 map <C-I> :py3f $HOME/.vim/clang-format.py<cr>
-imap <C-I> <c-o>:py3f $HOME/.vim/clang-format.py<cr>
+"imap <C-I> <c-o>:py3f $HOME/.vim/clang-format.py<cr>
 nmap <F4> ggVG :py3f $HOME/.vim/clang-format.py<cr>
 " F5 NERDTreeToggle 
 nnoremap <silent> <F5> :NERDTreeToggle<CR>

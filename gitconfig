@@ -4,9 +4,6 @@
 [core]
   editor=vim
 	excludesfile = ~/.vim/gitignore_global
-[github]
-  username=jmcadden
-  oauth-token = 9b71059dc54d1e745a9786ab5c2ee96b864c635b
 [diff]
   tool=vimdiff
 [push]
