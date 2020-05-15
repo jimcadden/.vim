@@ -59,9 +59,8 @@ set paste
 set pastetoggle=<F2>      " toggle paste-intend on/off (must be in insert mode)
 set nohidden              " close buffer when all windows close
 set t_Co=256              " default to 256 colors
-let g:solorized_termcolors=256
 set stl=%<%.99F\[%n]%{fugitive#statusline()}%y%w%m%r\ line:%l/%L\ col:%c\ 
-colorscheme solarized
+colorscheme elflord 
 filetype on
 filetype plugin indent on
 au BufRead,BufNewFile *.sls setfiletype yaml
@@ -110,8 +109,6 @@ nnoremap <Leader>q :qa<CR>
 "" PLUGINS """"""""""""""""""""""""""""""""""""""""""
 
 
-" CTAGS
-let g:tagbar_ctags_bin = '$HOME/usr/local/bin/ctags'
 " FUGATIVE 
 autocmd BufReadPost fugitive://* set bufhidden=delete
 "cabbrev gg GgrepQF <C-R><C-W>

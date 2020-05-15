@@ -1,6 +1,6 @@
 [user]
   name= Jim Cadden
-  email= jmcadden@bu.edu
+  email= james.cadden@gmail.com 
 [core]
   editor=vim
 	excludesfile = ~/.vim/gitignore_global

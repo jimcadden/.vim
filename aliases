@@ -1,0 +1,11 @@
+alias lls="ls -lagh"
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+alias gs='git status'
+alias vvim='vim -c Tagbar -c NERDTree'
+alias fdate="date '+%Y_%m_%d'"
+alias fsdate="date '+%Y_%m_%d_%s'"
+alias ll='ls -l'
+alias cp='cp -i'
+alias mv='mv -i'
