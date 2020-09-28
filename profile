@@ -3,7 +3,7 @@ export CLICOLOR=1
 export TERM=xterm-256color
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILESIZE=
+HISTFILESIZE=999999
 HISTCONTROL=ignoreboth
 
 if [ -x /usr/bin/dircolors ]; then

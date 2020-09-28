@@ -9,3 +9,4 @@ alias fsdate="date '+%Y_%m_%d_%s'"
 alias ll='ls -l'
 alias cp='cp -i'
 alias mv='mv -i'
+alias history="history 1"

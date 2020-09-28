@@ -1,6 +1,6 @@
 [user]
-  name= Jim Cadden
-  email= james.cadden@gmail.com 
+	name = James Cadden
+	email = jcadden@ibm.com
 [core]
   editor=vim
 	excludesfile = ~/.vim/gitignore_global
