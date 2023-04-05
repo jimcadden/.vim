@@ -1,5 +1,5 @@
 [user]
-	name = James Cadden
+	name = Jim Cadden
 	email = jcadden@ibm.com
 [core]
   editor=vim
@@ -14,5 +14,3 @@
   s= status -s -b
   gs= status
   pull= pull --ff-only
-
-
